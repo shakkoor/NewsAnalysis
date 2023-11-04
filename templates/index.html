@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Summarizer</title>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    
+    background: radial-gradient(circle at 10% 20%, rgb(55, 209, 255) 0%, rgb(14, 31, 111) 100.2%);
+}
+p,h2{
+    color: white;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border: 3px solid white;
+    padding: 10px;
+    margin: 10px 0;
+}
+body, header {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header */
+.site-header {
+    background-color: #102C57; /* Change the background color to your preference */
+    color: #fff; /* Change the text color to your preference */
+    padding: 1px; /* Adjust padding as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    z-index: 100; /* You can adjust the z-index if needed */
+}
+
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+/* Style the card deck */
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Style individual cards */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 600px; /* Adjust the width as needed */
+}
+
+.card img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.card-text {
+    font-size: 16px;
+}
+.predicted-category {
+            font-style: italic;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="site-header"><h1>HeadlineHarbor</h1></header>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card-deck">
+        {% for article in articles %}
+        <div class="card">
+            
+            <img src="{{ article.image_url }}" alt="Card Image 1">
+            <div class="card-body">
+                <h3 class="card-title" style="color: white;">{{ article.title }}</h3>
+                <p>{{ article.description }}</p>
+                <div class="predicted-category">Predicted Category: {{ article.predicted_class }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    
+
+            
+</body>
+</html>
